@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" onKeyPressed="#onKeyPressed" prefHeight="139.0" prefWidth="233.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="singh.g.enigmagraphics.EnigmaController">
+    <GridPane fx:id="gridButtons" alignment="CENTER">
+
+    </GridPane>
+</VBox>
