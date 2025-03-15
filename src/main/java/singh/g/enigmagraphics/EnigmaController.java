@@ -49,6 +49,7 @@ public class EnigmaController {
 
     private Button[] buttons;
 
+
     @FXML
     void initialize(){
         buttons = new Button[27];
