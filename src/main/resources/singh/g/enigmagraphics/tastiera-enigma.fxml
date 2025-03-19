@@ -33,7 +33,7 @@
             <VBox.margin>
                <Insets left="20.0" right="20.0" />
             </VBox.margin></ChoiceBox>
-         <Button fx:id="ButtonPlusR" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+">
+         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonPlusRClick" prefHeight="25.0" prefWidth="25.0" text="+">
             <opaqueInsets>
                <Insets />
             </opaqueInsets>
@@ -46,7 +46,7 @@
                <Font name="Serif Regular" size="32.0" />
             </font>
          </Label>
-         <Button fx:id="ButtonMinusR" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-">
+         <Button mnemonicParsing="false" onAction="#OnButtonMinusRClick" prefHeight="25.0" prefWidth="25.0" text="-">
             <VBox.margin>
                <Insets left="62.5" />
             </VBox.margin>
@@ -59,7 +59,7 @@
          <HBox.margin>
             <Insets bottom="20.0" top="20.0" />
          </HBox.margin>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROTORE III" textAlignment="CENTER" wrappingWidth="150.0">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROTORE 3" textAlignment="CENTER" wrappingWidth="150.0">
             <font>
                <Font name="Serif Regular" size="12.0" />
             </font>
@@ -72,79 +72,7 @@
                <Insets left="20.0" right="20.0" />
             </VBox.margin>
          </ChoiceBox>
-         <Button fx:id="ButtonPlus3" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+">
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <VBox.margin>
-               <Insets left="62.5" top="10.0" />
-            </VBox.margin>
-         </Button>
-         <Label fx:id="TextIndexRotore1" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="A">
-            <font>
-               <Font name="Serif Regular" size="32.0" />
-            </font>
-         </Label>
-         <Button fx:id="ButtonMinus3" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-">
-            <VBox.margin>
-               <Insets left="62.5" />
-            </VBox.margin>
-         </Button>
-      </VBox>
-      <VBox blendMode="DARKEN" layoutX="10.0" layoutY="30.0" prefHeight="100.0" prefWidth="150.0">
-         <HBox.margin>
-            <Insets bottom="20.0" top="20.0" />
-         </HBox.margin>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROTORE II" textAlignment="CENTER" wrappingWidth="150.0">
-            <font>
-               <Font name="Serif Regular" size="12.0" />
-            </font>
-            <VBox.margin>
-               <Insets bottom="5.0" />
-            </VBox.margin>
-         </Text>
-         <ChoiceBox fx:id="ChoiceBoxRotore2" prefWidth="150.0">
-            <VBox.margin>
-               <Insets left="20.0" right="20.0" />
-            </VBox.margin>
-         </ChoiceBox>
-         <Button fx:id="ButtonPlus2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+">
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <VBox.margin>
-               <Insets left="62.5" top="10.0" />
-            </VBox.margin>
-         </Button>
-         <Label fx:id="TextIndexRotore2" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="A">
-            <font>
-               <Font name="Serif Regular" size="32.0" />
-            </font>
-         </Label>
-         <Button fx:id="ButtonMinus2" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-">
-            <VBox.margin>
-               <Insets left="62.5" />
-            </VBox.margin>
-         </Button>
-      </VBox>
-      <VBox blendMode="DARKEN" layoutX="10.0" layoutY="30.0" prefHeight="100.0" prefWidth="150.0">
-         <HBox.margin>
-            <Insets bottom="20.0" top="20.0" />
-         </HBox.margin>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROTORE I" textAlignment="CENTER" wrappingWidth="150.0">
-            <font>
-               <Font name="Serif Regular" size="12.0" />
-            </font>
-            <VBox.margin>
-               <Insets bottom="5.0" />
-            </VBox.margin>
-         </Text>
-         <ChoiceBox fx:id="ChoiceBoxRotore1" prefWidth="150.0">
-            <VBox.margin>
-               <Insets left="20.0" right="20.0" />
-            </VBox.margin>
-         </ChoiceBox>
-         <Button fx:id="ButtonPlus1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+">
+         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonPlus3Click" prefHeight="25.0" prefWidth="25.0" text="+">
             <opaqueInsets>
                <Insets />
             </opaqueInsets>
@@ -157,7 +85,79 @@
                <Font name="Serif Regular" size="32.0" />
             </font>
          </Label>
-         <Button fx:id="ButtonMinus1" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-">
+         <Button mnemonicParsing="false" onAction="#OnButtonMinus3Click" prefHeight="25.0" prefWidth="25.0" text="-">
+            <VBox.margin>
+               <Insets left="62.5" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <VBox blendMode="DARKEN" layoutX="10.0" layoutY="30.0" prefHeight="100.0" prefWidth="150.0">
+         <HBox.margin>
+            <Insets bottom="20.0" top="20.0" />
+         </HBox.margin>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROTORE 2" textAlignment="CENTER" wrappingWidth="150.0">
+            <font>
+               <Font name="Serif Regular" size="12.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </Text>
+         <ChoiceBox fx:id="ChoiceBoxRotore2" prefWidth="150.0">
+            <VBox.margin>
+               <Insets left="20.0" right="20.0" />
+            </VBox.margin>
+         </ChoiceBox>
+         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonPlus2Click" prefHeight="25.0" prefWidth="25.0" text="+">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+               <Insets left="62.5" top="10.0" />
+            </VBox.margin>
+         </Button>
+         <Label fx:id="TextIndexRotore2" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="A">
+            <font>
+               <Font name="Serif Regular" size="32.0" />
+            </font>
+         </Label>
+         <Button mnemonicParsing="false" onAction="#OnButtonMinus2Click" prefHeight="25.0" prefWidth="25.0" text="-">
+            <VBox.margin>
+               <Insets left="62.5" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <VBox blendMode="DARKEN" layoutX="10.0" layoutY="30.0" prefHeight="100.0" prefWidth="150.0">
+         <HBox.margin>
+            <Insets bottom="20.0" top="20.0" />
+         </HBox.margin>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROTORE 1" textAlignment="CENTER" wrappingWidth="150.0">
+            <font>
+               <Font name="Serif Regular" size="12.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </Text>
+         <ChoiceBox fx:id="ChoiceBoxRotore1" prefWidth="150.0">
+            <VBox.margin>
+               <Insets left="20.0" right="20.0" />
+            </VBox.margin>
+         </ChoiceBox>
+         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonPlus1Click" prefHeight="25.0" prefWidth="25.0" text="+">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+               <Insets left="62.5" top="10.0" />
+            </VBox.margin>
+         </Button>
+         <Label fx:id="TextIndexRotore1" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="A">
+            <font>
+               <Font name="Serif Regular" size="32.0" />
+            </font>
+         </Label>
+         <Button mnemonicParsing="false" onAction="#OnButtonMinus1Click" prefHeight="25.0" prefWidth="25.0" text="-">
             <VBox.margin>
                <Insets left="62.5" />
             </VBox.margin>

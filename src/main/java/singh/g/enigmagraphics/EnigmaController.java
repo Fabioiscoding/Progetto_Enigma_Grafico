@@ -1,5 +1,6 @@
 package singh.g.enigmagraphics;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -7,55 +8,51 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
-public class EnigmaController {
-    @FXML
-    public ChoiceBox<Character> ChoiceBoxRiflettore;
-    @FXML
-    public Button ButtonPlusR;
-    @FXML
-    public Label TextIndexRiflettore;
-    @FXML
-    public Button ButtonMinusR;
+public class EnigmaController{
+    char c;
 
     @FXML
-    public ChoiceBox<String> ChoiceBoxRotore3;
+    private ChoiceBox<String> ChoiceBoxRiflettore;
     @FXML
-    public Button ButtonPlus3;
-    @FXML
-    public Label TextIndexRotore3;
-    @FXML
-    public Button ButtonMinus3;
+    private Label TextIndexRiflettore;
 
     @FXML
-    public ChoiceBox<String> ChoiceBoxRotore2;
+    private ChoiceBox<String> ChoiceBoxRotore3;
     @FXML
-    public Button ButtonPlus2;
-    @FXML
-    public Label TextIndexRotore2;
-    @FXML
-    public Button ButtonMinus2;
+    private Label TextIndexRotore3;
 
     @FXML
-    public ChoiceBox<String> ChoiceBoxRotore1;
+    private ChoiceBox<String> ChoiceBoxRotore2;
     @FXML
-    public Button ButtonPlus1;
-    @FXML
-    public Label TextIndexRotore1;
-    @FXML
-    public Button ButtonMinus1;
+    private Label TextIndexRotore2;
 
+    @FXML
+    private ChoiceBox<String> ChoiceBoxRotore1;
+    @FXML
+    private Label TextIndexRotore1;
+
+    @FXML
+    private Criptografia Enigma;
     @FXML
     private GridPane gridButtons;
 
     private Button[] buttons;
 
-
     @FXML
-    void initialize(){
+    public void initialize(){
         buttons = new Button[27];
         char lettera = 'A';
         gridButtons.setVgap(10);
         gridButtons.setHgap(10);
+        ChoiceBoxRiflettore.getItems().addAll("A","B","C");
+        ChoiceBoxRotore1.getItems().setAll("I","II","III","IV","V");
+        ChoiceBoxRotore2.getItems().setAll("I","II","III","IV","V");
+        ChoiceBoxRotore3.getItems().setAll("I","II","III","IV","V");
+        ChoiceBoxRiflettore.getSelectionModel().select(1);
+        ChoiceBoxRotore3.getSelectionModel().select(2);
+        ChoiceBoxRotore2.getSelectionModel().select(1);
+        ChoiceBoxRotore1.getSelectionModel().selectFirst();
+        Criptografia()
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
                 buttons[i * 9 + j] = new Button("" + lettera);
@@ -70,14 +67,24 @@ public class EnigmaController {
                 if (lettera > 'Z') return;
             }
         }
-        ChoiceBoxRiflettore.getItems().addAll('A','B','C');
-        ChoiceBoxRotore1.getItems().addAll("I","II","III","IV","V");
-        ChoiceBoxRotore2.getItems().addAll("I","II","III","IV","V");
-        ChoiceBoxRotore3.getItems().addAll("I","II","III","IV","V");
-        ChoiceBoxRiflettore.getSelectionModel().select(1);
-        ChoiceBoxRotore3.getSelectionModel().selectFirst();
-        ChoiceBoxRotore2.getSelectionModel().selectFirst();
-        ChoiceBoxRotore1.getSelectionModel().selectFirst();
+    }
+
+
+
+
+
+    public char letteraDopo(char l){
+        l += 1;
+        if (l > 'Z')
+            l = 'A';
+        return l;
+    }
+
+    public char letteraPrima(char l){
+        l--;
+        if (l < 'A')
+            l = 'Z';
+        return l;
     }
 
     @FXML
@@ -87,5 +94,59 @@ public class EnigmaController {
             buttons[pos].fire();
             buttons[pos].requestFocus();
         }
+    }
+    @FXML
+    protected void OnButtonPlusRClick(ActionEvent actionEvent) {
+        c = TextIndexRiflettore.getText().toCharArray()[0];
+        c = letteraDopo(c);
+        TextIndexRiflettore.setText(Character.toString(c));
+    }
+    @FXML
+    protected void OnButtonMinusRClick(ActionEvent actionEvent) {
+        c = TextIndexRiflettore.getText().toCharArray()[0];
+        c = letteraPrima(c);
+        TextIndexRiflettore.setText(Character.toString(c));
+    }
+    @FXML
+
+    protected void OnButtonPlus3Click(ActionEvent actionEvent) {
+        c = TextIndexRotore3.getText().toCharArray()[0];
+        c = letteraDopo(c);
+        TextIndexRotore3.setText(Character.toString(c));
+    }
+    @FXML
+
+    protected void OnButtonMinus3Click(ActionEvent actionEvent) {
+        c = TextIndexRotore3.getText().toCharArray()[0];
+        c = letteraPrima(c);
+        TextIndexRotore3.setText(Character.toString(c));
+    }
+    @FXML
+
+    protected void OnButtonPlus2Click(ActionEvent actionEvent) {
+        c = TextIndexRotore2.getText().toCharArray()[0];
+        c = letteraDopo(c);
+        TextIndexRotore2.setText(Character.toString(c));
+    }
+    @FXML
+
+    protected void OnButtonMinus2Click(ActionEvent actionEvent) {
+        c = TextIndexRotore2.getText().toCharArray()[0];
+        c = letteraPrima(c);
+        TextIndexRotore2.setText(Character.toString(c));
+    }
+    @FXML
+
+    protected void OnButtonPlus1Click(ActionEvent actionEvent) {
+        c = TextIndexRotore1.getText().toCharArray()[0];
+        c = letteraDopo(c);
+        TextIndexRotore1.setText(Character.toString(c));
+    }
+    @FXML
+
+    protected void OnButtonMinus1Click(ActionEvent actionEvent) {
+        c = TextIndexRotore1.getText().toCharArray()[0];
+        c = letteraPrima(c);
+        TextIndexRotore1.setText(Character.toString(c));
     }
 }
