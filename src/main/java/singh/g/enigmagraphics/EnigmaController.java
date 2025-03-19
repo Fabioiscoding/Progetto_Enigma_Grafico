@@ -52,7 +52,6 @@ public class EnigmaController{
         ChoiceBoxRotore3.getSelectionModel().select(2);
         ChoiceBoxRotore2.getSelectionModel().select(1);
         ChoiceBoxRotore1.getSelectionModel().selectFirst();
-        Criptografia()
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
                 buttons[i * 9 + j] = new Button("" + lettera);
