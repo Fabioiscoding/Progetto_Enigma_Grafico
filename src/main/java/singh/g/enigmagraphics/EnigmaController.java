@@ -10,6 +10,9 @@ import javafx.scene.layout.GridPane;
 
 public class EnigmaController{
     char c;
+    char codifica;
+    @FXML
+    char l='A';
     @FXML
     private ChoiceBox<String> ChoiceBoxRiflettore;
     @FXML
@@ -56,20 +59,20 @@ public class EnigmaController{
         TextIndexRotore3.setText("A");
         TextIndexRiflettore.setText(ChoiceBoxRiflettore.getValue());
         System.out.println(ChoiceBoxRotore1.getSelectionModel().getSelectedIndex() + " " + (int)(TextIndexRotore1.getText().toCharArray()[0]-lettera) + " " + ChoiceBoxRotore2.getSelectionModel().getSelectedIndex() + " " + (int)(TextIndexRotore2.getText().toCharArray()[0]-lettera) + " " + ChoiceBoxRotore3.getSelectionModel().getSelectedIndex() + " " + (int)(TextIndexRotore3.getText().toCharArray()[0]-lettera) + " " + ChoiceBoxRiflettore.getSelectionModel().getSelectedIndex());
-        Criptografia c = new Criptografia(ChoiceBoxRotore1.getSelectionModel().getSelectedIndex(),(int)(TextIndexRotore1.getText().toCharArray()[0]-lettera),  ChoiceBoxRotore2.getSelectionModel().getSelectedIndex(),(int)(TextIndexRotore2.getText().toCharArray()[0]-lettera),ChoiceBoxRotore3.getSelectionModel().getSelectedIndex(),(int)(TextIndexRotore3.getText().toCharArray()[0]-lettera),ChoiceBoxRiflettore.getSelectionModel().getSelectedIndex());
+        Criptografia Enigma = new Criptografia(ChoiceBoxRotore1.getSelectionModel().getSelectedIndex(),(int)(TextIndexRotore1.getText().toCharArray()[0]-lettera),  ChoiceBoxRotore2.getSelectionModel().getSelectedIndex(),(int)(TextIndexRotore2.getText().toCharArray()[0]-lettera),ChoiceBoxRotore3.getSelectionModel().getSelectedIndex(),(int)(TextIndexRotore3.getText().toCharArray()[0]-lettera),ChoiceBoxRiflettore.getSelectionModel().getSelectedIndex());
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
                 buttons[i * 9 + j] = new Button("" + lettera);
                 buttons[i * 9 + j].setPrefWidth(600 / 10);
                 char letteraC = lettera; //variabile con la lettera iniziale che poi verra codificata.
                 buttons[i * 9 + j].setOnAction(e -> {
-                    char codifica = c.codificaLettera(letteraC);
+                    codifica = Enigma.codificaLettera(letteraC);
+                    l = codifica;
                     System.out.println("Lettera codificata: " + codifica);
                 });
-
                 gridButtons.add(buttons[i * 9 + j], j, i);
                 lettera++;
-                if (lettera == '[') return;
+                if (lettera > 'Z') return;
             }
         }
     }
@@ -78,7 +81,7 @@ public class EnigmaController{
     @FXML
     public void onKeyPressed(KeyEvent event){
         if (event.getCode().isLetterKey()){
-            int pos = event.getCode().getChar().charAt(0) - 'A';
+            int pos = l - 'A';
             buttons[pos].fire();
             buttons[pos].requestFocus();
         }
