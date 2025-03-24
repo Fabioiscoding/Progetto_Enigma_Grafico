@@ -25,6 +25,7 @@ public class Criptografia {
     }
 
     public char codificaLettera(char ch){
+        giraRotori();
         return r1.letteraInversa(r2.letteraInversa(r3.letteraInversa(rf.lettera(r3.lettera(r2.lettera(r1.lettera(ch)))))));
     }
 
@@ -32,7 +33,6 @@ public class Criptografia {
         fraseDivisa = (frase.toUpperCase()).toCharArray();
         for (char ch : fraseDivisa){
             System.out.println(ch);
-            giraRotori();
             if ((codice.length()+1)%6 == 0)
                 codice.append(" ");
             if (ch <= 'Z' && ch >= 'A')

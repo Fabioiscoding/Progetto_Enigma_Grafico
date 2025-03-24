@@ -14,35 +14,35 @@ public class Rotore {
     }
 
     public void codificaNRotore(int nRotore){
-        if (nRotore < 1 || nRotore > 5){
+        if (nRotore < 0 || nRotore > 4){
             throw new IllegalArgumentException("Rotore non valido");
         }
         switch (nRotore) {
-            case 1:
+            case 0:
                 for (char c : "EKMFLGDQVZNTOWYHXUSPAIBRCJ".toCharArray()) {
                     rotore.add(c - 'A');
                 }
                 lettereaCambio = 'Q';
                 break;
-            case 2:
+            case 1:
                 for (char c : "AJDKSIRUXBLHWTMCQGZNPYFVOE".toCharArray()) {
                     rotore.add(c - 'A');
                 }
                 lettereaCambio = 'E';
                 break;
-            case 3:
+            case 2:
                 for (char c : "BDFHJLCPRTXVZNYEIWGAKMUSQO".toCharArray()) {
                     rotore.add(c - 'A');
                 }
                 lettereaCambio = 'V';
                 break;
-            case 4:
+            case 3:
                 for (char c : "ESOVPZJAYQUIRHXLNFTGKDCMWB".toCharArray()) {
                     rotore.add(c - 'A');
                 }
                 lettereaCambio = 'J';
                 break;
-            case 5:
+            case 4:
                 for (char c : "VZBRGITYUPSDNHLXAWMJQOFECK".toCharArray()) {
                     rotore.add(c - 'A');
                 }

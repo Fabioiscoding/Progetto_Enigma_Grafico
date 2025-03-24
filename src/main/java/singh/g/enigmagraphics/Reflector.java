@@ -10,21 +10,21 @@ public class Reflector {
     }
 
     public void codificaNRotore(int nReflector){
-        if (nReflector < 1 || nReflector > 3){
+        if (nReflector < 0 || nReflector > 2){
             throw new IllegalArgumentException("Rotore non valido");
         }
         switch (nReflector) {
-            case 1:
+            case 0:
                 for (char c : "EJMZALYXVBWFCRQUONTSPIKHGD".toCharArray()) {
                     reflector.add(c - 'A');
                 }
                 break;
-            case 2:
+            case 1:
                 for (char c : "YRUHQSLDPXNGOKMIEBFZCWVJAT".toCharArray()) {
                     reflector.add(c - 'A');
                 }
                 break;
-            case 3:
+            case 2:
                 for (char c : "FVPJIAOYEDRZXWGCTKUQSBNMHL".toCharArray()) {
                     reflector.add(c - 'A');
                 }
