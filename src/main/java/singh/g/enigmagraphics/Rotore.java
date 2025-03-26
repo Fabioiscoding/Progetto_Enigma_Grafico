@@ -52,7 +52,7 @@ public class Rotore {
     }
 
     public boolean cambioRotore(){
-        return (char)('A' + indexRotore-1) == lettereaCambio;
+        return (char)('A' + indexRotore - 1) == lettereaCambio;
     }
 
     public void giraRotore(){
