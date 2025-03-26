@@ -164,6 +164,8 @@
          </Button>
       </VBox>
    </HBox>
+   <GridPane fx:id="gridLamp" alignment="CENTER">
+   </GridPane>
     <GridPane fx:id="gridButtons" alignment="CENTER">
     </GridPane>
 </VBox>
