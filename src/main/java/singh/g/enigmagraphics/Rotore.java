@@ -52,11 +52,11 @@ public class Rotore {
     }
 
     public boolean cambioRotore(){
-        return (char)('A' + indexRotore) == lettereaCambio;
+        return (char)('A' + indexRotore-1) == lettereaCambio;
     }
 
     public void giraRotore(){
-        indexRotore = (indexRotore + 1) % 26;
+        indexRotore = (indexRotore+1) % 26;
     }
 
     public char lettera(char ch){
