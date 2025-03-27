@@ -1,5 +1,7 @@
 package singh.g.enigmagraphics;
 
+import java.util.ArrayList;
+
 public class Criptografia {
     private final Rotore r1, r2, r3;
     private final Reflector rf;
@@ -22,6 +24,14 @@ public class Criptografia {
                 r3.giraRotore();
             }
         }
+    }
+
+    public ArrayList<Integer>indexRotori(){
+        ArrayList<Integer> i = new ArrayList<>();
+        i.add(r1.indexRotore);
+        i.add(r2.indexRotore);
+        i.add(r3.indexRotore);
+        return i;
     }
 
     public char codificaLettera(char ch){

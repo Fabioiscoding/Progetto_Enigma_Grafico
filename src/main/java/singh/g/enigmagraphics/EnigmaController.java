@@ -6,12 +6,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 public class EnigmaController {
     private static final int ROWS = 3;
@@ -20,7 +23,6 @@ public class EnigmaController {
     private static final int SPACING = 25;
     @FXML
     GridPane gridLamp = new GridPane();
-    char c;
     char codifica;
     @FXML
     char l = 'A';
@@ -118,6 +120,7 @@ public class EnigmaController {
                     l = codifica;
                     System.out.println("Lettera codificata: " + codifica);
                     cambioColoreLamp(codifica);
+                    indexRotori();
                 });
                 gridButtons.add(buttons[i * 9 + j], j, i);
                 lettera++;
@@ -143,6 +146,8 @@ public class EnigmaController {
         int row = pos / COLS;
         int col = pos % COLS;
         cambiaColoreLampo(row, col, Color.YELLOW);
+//        pause.setOnFinished(e -> resetLamp());
+//        pause.play();
     }
 
     @FXML
@@ -150,14 +155,17 @@ public class EnigmaController {
         if (event.getCode().isLetterKey()) {
             char letteraPremuta = event.getText().toUpperCase().charAt(0);
             int pos = letteraPremuta - 'A';
-            int row = pos / COLS;
-            int col = pos % COLS;
-
             buttons[pos].fire();
             buttons[pos].requestFocus();
         }
     }
 
+    protected void indexRotori(){
+        ArrayList<Integer> index = Enigma.indexRotori();
+        TextIndexRotore1.setText(String.valueOf((char)('A' + index.get(0))));
+        TextIndexRotore2.setText(String.valueOf((char)('A' + index.get(1))));
+        TextIndexRotore3.setText(String.valueOf((char)('A' + index.get(2))));
+    }
 
     public char letteraDopo(char l) {
         l += 1;
@@ -172,6 +180,8 @@ public class EnigmaController {
             l = 'Z';
         return l;
     }
+
+    char c;
 
     @FXML
     protected void OnButtonPlus3Click(ActionEvent actionEvent) {
