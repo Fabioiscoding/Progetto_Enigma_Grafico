@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -21,6 +20,7 @@ public class EnigmaController {
     private static final int COLS = 9;
     private static final int CIRCLE_RADIUS = 20;
     private static final int SPACING = 25;
+    char lettera = 'A';
     @FXML
     GridPane gridLamp = new GridPane();
     char codifica;
@@ -181,6 +181,19 @@ public class EnigmaController {
         return l;
     }
 
+    @FXML
+    protected void aggiornaEnigma(){
+        Enigma = new Criptografia(
+                ChoiceBoxRotore1.getSelectionModel().getSelectedIndex(),
+                (int) (TextIndexRotore1.getText().toCharArray()[0] - lettera),
+                ChoiceBoxRotore2.getSelectionModel().getSelectedIndex(),
+                (int) (TextIndexRotore2.getText().toCharArray()[0] - lettera),
+                ChoiceBoxRotore3.getSelectionModel().getSelectedIndex(),
+                (int) (TextIndexRotore3.getText().toCharArray()[0] - lettera),
+                ChoiceBoxRiflettore.getSelectionModel().getSelectedIndex()
+        );
+    }
+
     char c;
 
     @FXML
@@ -188,6 +201,7 @@ public class EnigmaController {
         c = TextIndexRotore3.getText().toCharArray()[0];
         c = letteraDopo(c);
         TextIndexRotore3.setText(Character.toString(c));
+        aggiornaEnigma();
     }
 
     @FXML
@@ -195,6 +209,7 @@ public class EnigmaController {
         c = TextIndexRotore3.getText().toCharArray()[0];
         c = letteraPrima(c);
         TextIndexRotore3.setText(Character.toString(c));
+        aggiornaEnigma();
     }
 
     @FXML
@@ -202,6 +217,7 @@ public class EnigmaController {
         c = TextIndexRotore2.getText().toCharArray()[0];
         c = letteraDopo(c);
         TextIndexRotore2.setText(Character.toString(c));
+        aggiornaEnigma();
     }
 
     @FXML
@@ -209,6 +225,7 @@ public class EnigmaController {
         c = TextIndexRotore2.getText().toCharArray()[0];
         c = letteraPrima(c);
         TextIndexRotore2.setText(Character.toString(c));
+        aggiornaEnigma();
     }
 
     @FXML
@@ -216,6 +233,7 @@ public class EnigmaController {
         c = TextIndexRotore1.getText().toCharArray()[0];
         c = letteraDopo(c);
         TextIndexRotore1.setText(Character.toString(c));
+        aggiornaEnigma();
     }
 
     @FXML
@@ -223,6 +241,7 @@ public class EnigmaController {
         c = TextIndexRotore1.getText().toCharArray()[0];
         c = letteraPrima(c);
         TextIndexRotore1.setText(Character.toString(c));
+        aggiornaEnigma();
     }
 
     public void cambiaColoreLampo(int row, int col, Color color) {
