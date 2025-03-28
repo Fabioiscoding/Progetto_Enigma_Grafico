@@ -121,6 +121,7 @@ public class EnigmaController {
                     System.out.println("Lettera codificata: " + codifica);
                     cambioColoreLamp(codifica);
                     indexRotori();
+                    aggiornaEnigma();
                 });
                 gridButtons.add(buttons[i * 9 + j], j, i);
                 lettera++;
