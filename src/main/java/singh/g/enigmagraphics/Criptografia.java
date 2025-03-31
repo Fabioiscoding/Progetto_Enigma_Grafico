@@ -34,6 +34,7 @@ public class Criptografia {
         return i;
     }
 
+
     public char codificaLettera(char ch){
         giraRotori();
         return r1.letteraInversa(r2.letteraInversa(r3.letteraInversa(rf.lettera(r3.lettera(r2.lettera(r1.lettera(ch)))))));
