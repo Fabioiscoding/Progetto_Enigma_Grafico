@@ -27,9 +27,9 @@ public class EnigmaController {
     @FXML
     char l = 'A';
     @FXML
-    private ChoiceBox<String> ChoiceBoxRiflettore;
+    private ChoiceBox<String> ChoiceBoxRiflessore;
     @FXML
-    private Label TextIndexRiflettore;
+    private Label TextIndexRiflessore;
 
     @FXML
     private ChoiceBox<String> ChoiceBoxRotore3;
@@ -63,12 +63,12 @@ public class EnigmaController {
         gridButtons.setHgap(10);
         char lettera = 'A';
 
-        ChoiceBoxRiflettore.getItems().addAll("A", "B", "C");
+        ChoiceBoxRiflessore.getItems().addAll("A", "B", "C");
         ChoiceBoxRotore1.getItems().setAll("I", "II", "III", "IV", "V");
         ChoiceBoxRotore2.getItems().setAll("I", "II", "III", "IV", "V");
         ChoiceBoxRotore3.getItems().setAll("I", "II", "III", "IV", "V");
 
-        ChoiceBoxRiflettore.getSelectionModel().select(1);
+        ChoiceBoxRiflessore.getSelectionModel().select(1);
         ChoiceBoxRotore3.getSelectionModel().select(2);
         ChoiceBoxRotore2.getSelectionModel().select(1);
         ChoiceBoxRotore1.getSelectionModel().selectFirst();
@@ -76,7 +76,7 @@ public class EnigmaController {
         TextIndexRotore1.setText("A");
         TextIndexRotore2.setText("A");
         TextIndexRotore3.setText("A");
-        TextIndexRiflettore.setText(ChoiceBoxRiflettore.getValue());
+        TextIndexRiflessore.setText(ChoiceBoxRiflessore.getValue());
 
         Enigma = new Criptografia(
                 ChoiceBoxRotore1.getSelectionModel().getSelectedIndex(),
@@ -85,7 +85,7 @@ public class EnigmaController {
                 (int) (TextIndexRotore2.getText().toCharArray()[0] - lettera),
                 ChoiceBoxRotore3.getSelectionModel().getSelectedIndex(),
                 (int) (TextIndexRotore3.getText().toCharArray()[0] - lettera),
-                ChoiceBoxRiflettore.getSelectionModel().getSelectedIndex()
+                ChoiceBoxRiflessore.getSelectionModel().getSelectedIndex()
         );
 
         gridLamp.setHgap(SPACING);
@@ -191,7 +191,7 @@ public class EnigmaController {
                 (int) (TextIndexRotore2.getText().toCharArray()[0] - lettera),
                 ChoiceBoxRotore3.getSelectionModel().getSelectedIndex(),
                 (int) (TextIndexRotore3.getText().toCharArray()[0] - lettera),
-                ChoiceBoxRiflettore.getSelectionModel().getSelectedIndex()
+                ChoiceBoxRiflessore.getSelectionModel().getSelectedIndex()
         );
     }
 
