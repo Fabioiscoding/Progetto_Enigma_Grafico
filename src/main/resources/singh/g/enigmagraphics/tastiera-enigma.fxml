@@ -4,22 +4,45 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" onKeyPressed="#onKeyPressed" prefHeight="295.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="singh.g.enigmagraphics.EnigmaController">
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ENIGMA">
-      <font>
-         <Font name="Perpetua" size="55.0" />
-      </font>
-      <VBox.margin>
-         <Insets bottom="-20.0" top="10.0" />
-      </VBox.margin>
-   </Text>
+<VBox alignment="CENTER" onKeyPressed="#onKeyPressed" prefHeight="351.0" prefWidth="1400.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="singh.g.enigmagraphics.EnigmaController">
+   <Pane prefHeight="200.0" prefWidth="200.0">
+      <children>
+         <Text layoutX="605.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENIGMA">
+            <font>
+               <Font name="Perpetua" size="55.0" />
+            </font>
+         </Text>
+         <VBox layoutX="1225.0" layoutY="14.0" prefHeight="63.0" prefWidth="100.0">
+            <children>
+               <RadioButton fx:id="rdtTastiera" mnemonicParsing="false" text="Tastiera">
+                  <VBox.margin>
+                     <Insets top="7.0" />
+                  </VBox.margin>
+               </RadioButton>
+               <RadioButton fx:id="rdtTesto" mnemonicParsing="false" text="Testo">
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+               </RadioButton>
+            </children>
+         </VBox>
+      </children>
+   </Pane>
    <HBox prefHeight="100.0" prefWidth="200.0">
+      <TextArea fx:id="txtInput" prefHeight="181.0" prefWidth="380.0" promptText="Input....">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </TextArea>
       <VBox blendMode="DARKEN" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RIFLESSORE" textAlignment="CENTER" wrappingWidth="150.0">
             <font>
@@ -163,9 +186,24 @@
             </VBox.margin>
          </Button>
       </VBox>
+      <TextArea fx:id="txtOutput" prefHeight="181.0" prefWidth="380.0" promptText="Output...." />
    </HBox>
    <GridPane fx:id="gridLamp" alignment="CENTER">
    </GridPane>
     <GridPane fx:id="gridButtons" alignment="CENTER">
     </GridPane>
+   <HBox prefHeight="41.0" prefWidth="600.0">
+      <children>
+         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonClickReset" prefHeight="25.0" prefWidth="100.0" text="Clear" textOverrun="CLIP">
+            <HBox.margin>
+               <Insets left="20.0" />
+            </HBox.margin>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Enter" prefHeight="25.0" prefWidth="100.0" text="Button">
+            <HBox.margin>
+               <Insets left="100.0" />
+            </HBox.margin>
+         </Button>
+      </children>
+   </HBox>
 </VBox>

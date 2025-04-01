@@ -42,6 +42,7 @@ public class Criptografia {
 
     public StringBuilder codificaFrase(String frase){
         fraseDivisa = (frase.toUpperCase()).toCharArray();
+        codice = new StringBuilder();
         for (char ch : fraseDivisa){
             System.out.println(ch);
             if ((codice.length()+1)%6 == 0)

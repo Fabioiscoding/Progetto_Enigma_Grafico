@@ -10,7 +10,7 @@ public class EnigmaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(EnigmaApplication.class.getResource("tastiera-enigma.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 550);
+        Scene scene = new Scene(fxmlLoader.load(), 1400, 600);
         stage.setTitle("Enigma!");
         stage.setScene(scene);
         stage.show();

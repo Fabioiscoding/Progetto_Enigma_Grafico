@@ -3,9 +3,7 @@ package singh.g.enigmagraphics;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -20,6 +18,11 @@ public class EnigmaController {
     private static final int COLS = 9;
     private static final int CIRCLE_RADIUS = 20;
     private static final int SPACING = 25;
+    public Button Enter;
+    public TextArea txtInput;
+    public TextArea txtOutput;
+    public RadioButton rdtTastiera;
+    public RadioButton rdtTesto;
     char lettera = 'A';
     @FXML
     GridPane gridLamp = new GridPane();
@@ -59,9 +62,18 @@ public class EnigmaController {
 
     @FXML
     public void initialize() {
+        ToggleGroup group = new ToggleGroup();
+        rdtTastiera.setToggleGroup(group);
+        rdtTesto.setToggleGroup(group);
+        rdtTastiera.setSelected(true);
+        txtInput.setDisable(true);
+        txtOutput.setWrapText(true);
+        txtInput.setWrapText(true);
         gridButtons.setVgap(10);
         gridButtons.setHgap(10);
         char lettera = 'A';
+
+        txtOutput.setDisable(true);
 
         ChoiceBoxRiflessore.getItems().addAll("A", "B", "C");
         ChoiceBoxRotore1.getItems().setAll("I", "II", "III", "IV", "V");
@@ -122,10 +134,34 @@ public class EnigmaController {
                     cambioColoreLamp(codifica);
                     indexRotori();
                     aggiornaEnigma();
+                    if (rdtTesto.isSelected()){
+                        txtInput.setDisable(false);
+                        disableTastiera();
+                    }
                 });
                 gridButtons.add(buttons[i * 9 + j], j, i);
                 lettera++;
                 if (lettera > 'Z') return;
+            }
+        }
+    }
+
+    @FXML
+    protected void disableTastiera(){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (i * j != 16)
+                    buttons[i * 9 + j].setDisable(true);
+            }
+        }
+    }
+
+    @FXML
+    protected void ableTastiera(){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (i * j != 16)
+                    buttons[i * 9 + j].setDisable(false);
             }
         }
     }
@@ -184,6 +220,7 @@ public class EnigmaController {
 
     @FXML
     protected void aggiornaEnigma(){
+        TextIndexRiflessore.setText(ChoiceBoxRiflessore.getValue());
         Enigma = new Criptografia(
                 ChoiceBoxRotore1.getSelectionModel().getSelectedIndex(),
                 (int) (TextIndexRotore1.getText().toCharArray()[0] - lettera),
@@ -249,5 +286,23 @@ public class EnigmaController {
         StackPane lampo = lampArray[row][col];
         Circle circle = (Circle) lampo.getChildren().get(0);
         circle.setFill(color);
+    }
+
+    public void OnButtonClickReset(ActionEvent actionEvent) {
+        ChoiceBoxRiflessore.getSelectionModel().select(1);
+        ChoiceBoxRotore3.getSelectionModel().select(2);
+        ChoiceBoxRotore2.getSelectionModel().select(1);
+        ChoiceBoxRotore1.getSelectionModel().selectFirst();
+
+        TextIndexRotore1.setText("A");
+        TextIndexRotore2.setText("A");
+        TextIndexRotore3.setText("A");
+        TextIndexRiflessore.setText(ChoiceBoxRiflessore.getValue());
+        aggiornaEnigma();
+    }
+
+    public void Enter(ActionEvent actionEvent) {
+        txtOutput.setText(Enigma.codificaFrase(txtInput.getText()).toString());
+        indexRotori();
     }
 }
