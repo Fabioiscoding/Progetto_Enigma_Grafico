@@ -1,6 +1,5 @@
 package singh.g.enigmagraphics;
 
-import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -9,8 +8,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.util.Duration;
-
 import java.util.ArrayList;
 
 public class EnigmaController {
@@ -54,7 +51,7 @@ public class EnigmaController {
     @FXML
     private GridPane gridButtons;
 
-    PauseTransition pause = new PauseTransition(Duration.seconds(2));
+//    PauseTransition pause = new PauseTransition(Duration.seconds(2));
     @FXML
     private Button[] buttons;
     @FXML
@@ -73,7 +70,7 @@ public class EnigmaController {
         gridButtons.setHgap(10);
         char lettera = 'A';
 
-        txtOutput.setDisable(true);
+        txtOutput.setEditable(false);
 
         ChoiceBoxRiflessore.getItems().addAll("A", "B", "C");
         ChoiceBoxRotore1.getItems().setAll("I", "II", "III", "IV", "V");
@@ -99,6 +96,20 @@ public class EnigmaController {
                 (int) (TextIndexRotore3.getText().toCharArray()[0] - lettera),
                 ChoiceBoxRiflessore.getSelectionModel().getSelectedIndex()
         );
+
+        group.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == rdtTastiera) {
+                aggiornaEnigma();
+                txtInput.setDisable(true);
+                txtOutput.setDisable(true);
+                ableTastiera();
+            } else if (newValue == rdtTesto) {
+                aggiornaEnigma();
+                txtInput.setDisable(false);
+                txtOutput.setDisable(false);
+                disableTastiera();
+            }
+        });
 
         gridLamp.setHgap(SPACING);
         gridLamp.setVgap(SPACING/2);
@@ -134,10 +145,6 @@ public class EnigmaController {
                     cambioColoreLamp(codifica);
                     indexRotori();
                     aggiornaEnigma();
-                    if (rdtTesto.isSelected()){
-                        txtInput.setDisable(false);
-                        disableTastiera();
-                    }
                 });
                 gridButtons.add(buttons[i * 9 + j], j, i);
                 lettera++;
