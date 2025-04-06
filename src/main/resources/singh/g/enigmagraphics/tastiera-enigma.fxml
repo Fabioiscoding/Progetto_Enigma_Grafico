@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -13,32 +14,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" onKeyPressed="#onKeyPressed" prefHeight="351.0" prefWidth="1400.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="singh.g.enigmagraphics.EnigmaController">
-   <Pane prefHeight="200.0" prefWidth="200.0">
-      <children>
-         <Text layoutX="605.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENIGMA">
-            <font>
-               <Font name="Perpetua" size="55.0" />
-            </font>
-         </Text>
-         <VBox layoutX="1225.0" layoutY="14.0" prefHeight="63.0" prefWidth="100.0">
-            <children>
-               <RadioButton fx:id="rdtTastiera" mnemonicParsing="false" text="Tastiera">
-                  <VBox.margin>
-                     <Insets top="7.0" />
-                  </VBox.margin>
-               </RadioButton>
-               <RadioButton fx:id="rdtTesto" mnemonicParsing="false" text="Testo">
-                  <VBox.margin>
-                     <Insets top="10.0" />
-                  </VBox.margin>
-               </RadioButton>
-            </children>
-         </VBox>
-      </children>
+<VBox alignment="CENTER" onKeyPressed="#onKeyPressed" prefHeight="549.0" prefWidth="1400.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="singh.g.enigmagraphics.EnigmaController">
+   <Pane prefHeight="62.0" prefWidth="1400.0">
+      <Text layoutX="605.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENIGMA">
+         <font>
+            <Font name="Perpetua" size="55.0" />
+         </font>
+      </Text>
+      <VBox layoutX="1225.0" layoutY="14.0" prefHeight="63.0" prefWidth="100.0">
+         <RadioButton fx:id="rdtTastiera" mnemonicParsing="false" text="Tastiera">
+            <VBox.margin>
+               <Insets top="7.0" />
+            </VBox.margin>
+         </RadioButton>
+         <RadioButton fx:id="rdtTesto" mnemonicParsing="false" text="Testo">
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+         </RadioButton>
+      </VBox>
    </Pane>
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <TextArea fx:id="txtInput" prefHeight="181.0" prefWidth="380.0" promptText="Input....">
+   <HBox prefHeight="0.0" prefWidth="1400.0">
+      <TextArea fx:id="txtInput" onKeyPressed="#codifica" prefHeight="181.0" prefWidth="380.0" promptText="Input....">
          <HBox.margin>
             <Insets left="20.0" />
          </HBox.margin>
@@ -188,22 +185,109 @@
       </VBox>
       <TextArea fx:id="txtOutput" prefHeight="181.0" prefWidth="380.0" promptText="Output...." />
    </HBox>
-   <GridPane fx:id="gridLamp" alignment="CENTER">
-   </GridPane>
-    <GridPane fx:id="gridButtons" alignment="CENTER">
-    </GridPane>
+   <VBox prefHeight="190.0" prefWidth="1400.0">
+      <GridPane fx:id="gridLamp" alignment="CENTER">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </GridPane>
+      <GridPane fx:id="gridButtons" alignment="CENTER">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </GridPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PLUGBOARD" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font name="Perpetua" size="27.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="600.0" />
+         </VBox.margin>
+      </Text>
+      <HBox prefHeight="29.0" prefWidth="1400.0">
+         <TextField fx:id="txtPlugboard1" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="75.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard2" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard3" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard4" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard5" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard6" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard7" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard8" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard9" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard10" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard11" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard12" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="txtPlugboard13" prefHeight="25.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+         </TextField>
+      </HBox>
+   </VBox>
    <HBox prefHeight="41.0" prefWidth="600.0">
-      <children>
-         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonClickReset" prefHeight="25.0" prefWidth="100.0" text="Clear" textOverrun="CLIP">
-            <HBox.margin>
-               <Insets left="20.0" />
-            </HBox.margin>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Enter" prefHeight="25.0" prefWidth="100.0" text="Button">
-            <HBox.margin>
-               <Insets left="100.0" />
-            </HBox.margin>
-         </Button>
-      </children>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#OnButtonClickReset" prefHeight="32.0" prefWidth="200.0" text="Clear" textOverrun="CLIP">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Enter" prefHeight="32.0" prefWidth="200.0" text="Invio">
+         <HBox.margin>
+            <Insets left="960.0" />
+         </HBox.margin>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </HBox>
 </VBox>

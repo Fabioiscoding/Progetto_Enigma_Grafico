@@ -15,12 +15,25 @@ public class EnigmaController {
     private static final int COLS = 9;
     private static final int CIRCLE_RADIUS = 20;
     private static final int SPACING = 25;
-    public Button Enter;
     public TextArea txtInput;
     public TextArea txtOutput;
     public RadioButton rdtTastiera;
     public RadioButton rdtTesto;
+    public TextField txtPlugboard1;
+    public TextField txtPlugboard3;
+    public TextField txtPlugboard2;
+    public TextField txtPlugboard4;
+    public TextField txtPlugboard5;
+    public TextField txtPlugboard6;
+    public TextField txtPlugboard7;
+    public TextField txtPlugboard8;
+    public TextField txtPlugboard9;
+    public TextField txtPlugboard10;
+    public TextField txtPlugboard11;
+    public TextField txtPlugboard12;
+    public TextField txtPlugboard13;
     char lettera = 'A';
+    Plugboard plugboard;
     @FXML
     GridPane gridLamp = new GridPane();
     char codifica;
@@ -64,6 +77,7 @@ public class EnigmaController {
         rdtTesto.setToggleGroup(group);
         rdtTastiera.setSelected(true);
         txtInput.setDisable(true);
+        txtOutput.setDisable(true);
         txtOutput.setWrapText(true);
         txtInput.setWrapText(true);
         gridButtons.setVgap(10);
@@ -97,6 +111,8 @@ public class EnigmaController {
                 ChoiceBoxRiflessore.getSelectionModel().getSelectedIndex()
         );
 
+
+
         group.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == rdtTastiera) {
                 aggiornaEnigma();
@@ -110,6 +126,10 @@ public class EnigmaController {
                 disableTastiera();
             }
         });
+
+
+
+
 
         gridLamp.setHgap(SPACING);
         gridLamp.setVgap(SPACING/2);
@@ -137,8 +157,10 @@ public class EnigmaController {
             for (int j = 0; j < 9; j++) {
                 buttons[i * 9 + j] = new Button("" + lettera);
                 buttons[i * 9 + j].setPrefWidth(600 / 10);
+                buttons[i * 9 + j].setPrefHeight(600 / 10);
                 char letteraC = lettera;
                 buttons[i * 9 + j].setOnAction(e -> {
+                    aggiornaPlugboard();
                     codifica = Enigma.codificaLettera(letteraC);
                     l = codifica;
                     System.out.println("Lettera codificata: " + codifica);
@@ -162,6 +184,27 @@ public class EnigmaController {
             }
         }
     }
+
+    @FXML
+    protected void aggiornaPlugboard() {
+        if (Enigma != null) {
+            Enigma.resetPlugboard();
+            TextField[] plugFields = {
+                    txtPlugboard1, txtPlugboard2, txtPlugboard3, txtPlugboard4, txtPlugboard5,
+                    txtPlugboard6, txtPlugboard7, txtPlugboard8, txtPlugboard9, txtPlugboard10,
+                    txtPlugboard11, txtPlugboard12, txtPlugboard13
+            };
+
+            for (TextField field : plugFields) {
+                String text = field.getText().toUpperCase().replaceAll("[^A-Z]", "");
+                if (text.length() == 2 && text.charAt(0) != text.charAt(1)) {
+                    Enigma.setPlugboardConnections(text.charAt(0), text.charAt(1));
+                }
+            }
+        }
+    }
+
+
 
     @FXML
     protected void ableTastiera(){
@@ -239,6 +282,7 @@ public class EnigmaController {
         );
     }
 
+
     char c;
 
     @FXML
@@ -295,6 +339,7 @@ public class EnigmaController {
         circle.setFill(color);
     }
 
+    @FXML
     public void OnButtonClickReset(ActionEvent actionEvent) {
         ChoiceBoxRiflessore.getSelectionModel().select(1);
         ChoiceBoxRotore3.getSelectionModel().select(2);
@@ -305,11 +350,38 @@ public class EnigmaController {
         TextIndexRotore2.setText("A");
         TextIndexRotore3.setText("A");
         TextIndexRiflessore.setText(ChoiceBoxRiflessore.getValue());
+
+        TextField[] plugFields = {
+                txtPlugboard1, txtPlugboard2, txtPlugboard3, txtPlugboard4, txtPlugboard5,
+                txtPlugboard6, txtPlugboard7, txtPlugboard8, txtPlugboard9, txtPlugboard10,
+                txtPlugboard11, txtPlugboard12, txtPlugboard13
+        };
+
+        for (TextField tf : plugFields) {
+            tf.clear();
+        }
+
         aggiornaEnigma();
+        aggiornaPlugboard();
     }
+
 
     public void Enter(ActionEvent actionEvent) {
         txtOutput.setText(Enigma.codificaFrase(txtInput.getText()).toString());
         indexRotori();
     }
+    
+    @FXML
+    public void codifica(KeyEvent keyEvent) {
+        if (keyEvent.getCode().isLetterKey()) {
+            aggiornaPlugboard();
+            char letteraPremuta = keyEvent.getText().toUpperCase().charAt(0);  
+            char letteraCodificata = Enigma.codificaLettera(letteraPremuta);  
+            txtOutput.appendText(String.valueOf(letteraCodificata));  
+            cambioColoreLamp(letteraCodificata);  
+            indexRotori();  
+        }
+    }
+
+
 }

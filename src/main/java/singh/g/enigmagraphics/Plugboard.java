@@ -3,31 +3,32 @@ package singh.g.enigmagraphics;
 import java.util.HashMap;
 
 public class Plugboard {
-    private HashMap<Character, Character> connections = new HashMap<>();
-    public void connect(char letter1, char letter2) {
-        if (letter1 == letter2) return;
-        disconnect(letter1);
-        disconnect(letter2);
-        connections.put(letter1, letter2);
-        connections.put(letter2, letter1);
-    }
+    private final HashMap<Character, Character> scambi = new HashMap<>();
 
-    public void disconnect(char letter) {
-        if (connections.containsKey(letter)) {
-            char pairedLetter = connections.get(letter);
-            connections.remove(letter);
-            connections.remove(pairedLetter);
+    public void aggiungiScambio(char a, char b) {
+        if (a != b && Character.isLetter(a) && Character.isLetter(b)) {
+            a = Character.toUpperCase(a);
+            b = Character.toUpperCase(b);
+            rimuoviLettera(a);
+            rimuoviLettera(b);
+            scambi.put(a, b);
+            scambi.put(b, a);
         }
     }
 
     public char swap(char input) {
-        return connections.getOrDefault(input, input);
+        return scambi.getOrDefault(Character.toUpperCase(input), input);
     }
 
     public void reset() {
-        connections.clear();
+        scambi.clear();
     }
-    public String getConnections() {
-        return connections.toString();
+
+    private void rimuoviLettera(char c) {
+        if (scambi.containsKey(c)) {
+            char paired = scambi.get(c);
+            scambi.remove(paired);
+            scambi.remove(c);
+        }
     }
 }

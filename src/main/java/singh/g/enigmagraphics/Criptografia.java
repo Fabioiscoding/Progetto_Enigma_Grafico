@@ -19,7 +19,7 @@ public class Criptografia {
     }
 
     public void setPlugboardConnections(char letter1, char letter2) {
-        plugboard.connect(letter1, letter2);
+        plugboard.aggiungiScambio(letter1, letter2);
     }
 
     public void resetPlugboard() {
@@ -35,6 +35,8 @@ public class Criptografia {
             }
         }
     }
+
+
 
     public ArrayList<Integer> indexRotori() {
         ArrayList<Integer> i = new ArrayList<>();
