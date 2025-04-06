@@ -130,7 +130,6 @@ public class EnigmaController {
 
 
 
-
         gridLamp.setHgap(SPACING);
         gridLamp.setVgap(SPACING/2);
 
