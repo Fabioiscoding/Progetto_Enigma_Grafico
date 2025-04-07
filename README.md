@@ -71,10 +71,11 @@ Il simulatore Enigma offre:
 
 ---
 
-## 📷 Screenshot
+## 📷 Screenshot e video illustrazione
 
 ![Schermata dell'interfaccia](src/main/screenshots/enigma.png)
-*(Puoi aggiungere uno o più screenshot qui con il tag `![nome](percorso/immagine.png)`)*
+![Dimostrazione](src/main/screenshots/videoDimoostrazioneEnigma.mp4)
+
 
 ---
 
