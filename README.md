@@ -69,12 +69,11 @@ Il simulatore Enigma offre:
 - Un'ottima base per l’apprendimento della crittografia storica
 - Un esempio avanzato di applicazione JavaFX
 
-> Può essere utilizzato in ambito **didattico**, per **presentazioni**, o come base per **estensioni** future (es. stile vintage, esportazione configurazioni, modalità multiplayer).
-
 ---
 
 ## 📷 Screenshot
 
+![Schermata dell'interfaccia](src/immagini/Enigma.png)
 *(Puoi aggiungere uno o più screenshot qui con il tag `![nome](percorso/immagine.png)`)*
 
 ---
