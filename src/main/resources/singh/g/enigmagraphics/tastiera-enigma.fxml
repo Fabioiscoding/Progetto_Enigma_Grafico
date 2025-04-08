@@ -281,13 +281,5 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Enter" prefHeight="32.0" prefWidth="200.0" text="Invio">
-         <HBox.margin>
-            <Insets left="960.0" />
-         </HBox.margin>
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
    </HBox>
 </VBox>

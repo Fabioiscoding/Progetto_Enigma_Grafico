@@ -33,7 +33,6 @@ public class EnigmaController {
     public TextField txtPlugboard12;
     public TextField txtPlugboard13;
     char lettera = 'A';
-    Plugboard plugboard;
     @FXML
     GridPane gridLamp = new GridPane();
     char codifica;
@@ -43,28 +42,22 @@ public class EnigmaController {
     private ChoiceBox<String> ChoiceBoxRiflessore;
     @FXML
     private Label TextIndexRiflessore;
-
     @FXML
     private ChoiceBox<String> ChoiceBoxRotore3;
     @FXML
     private Label TextIndexRotore3;
-
     @FXML
     private ChoiceBox<String> ChoiceBoxRotore2;
     @FXML
     private Label TextIndexRotore2;
-
     @FXML
     private ChoiceBox<String> ChoiceBoxRotore1;
     @FXML
     private Label TextIndexRotore1;
-
     @FXML
     private Criptografia Enigma;
     @FXML
     private GridPane gridButtons;
-
-//    PauseTransition pause = new PauseTransition(Duration.seconds(2));
     @FXML
     private Button[] buttons;
     @FXML
@@ -83,7 +76,6 @@ public class EnigmaController {
         gridButtons.setVgap(10);
         gridButtons.setHgap(10);
         char lettera = 'A';
-
         txtOutput.setEditable(false);
 
         ChoiceBoxRiflessore.getItems().addAll("A", "B", "C");
@@ -362,21 +354,15 @@ public class EnigmaController {
         aggiornaPlugboard();
     }
 
-
-    public void Enter(ActionEvent actionEvent) {
-        txtOutput.setText(Enigma.codificaFrase(txtInput.getText()).toString());
-        indexRotori();
-    }
-    
     @FXML
     public void codifica(KeyEvent keyEvent) {
         if (keyEvent.getCode().isLetterKey()) {
             aggiornaPlugboard();
-            char letteraPremuta = keyEvent.getText().toUpperCase().charAt(0);  
-            char letteraCodificata = Enigma.codificaLettera(letteraPremuta);  
-            txtOutput.appendText(String.valueOf(letteraCodificata));  
-            cambioColoreLamp(letteraCodificata);  
-            indexRotori();  
+            char letteraPremuta = keyEvent.getText().toUpperCase().charAt(0);
+            char letteraCodificata = Enigma.codificaLettera(letteraPremuta);
+            txtOutput.appendText(String.valueOf(letteraCodificata));
+            cambioColoreLamp(letteraCodificata);
+            indexRotori();
         }
     }
 
