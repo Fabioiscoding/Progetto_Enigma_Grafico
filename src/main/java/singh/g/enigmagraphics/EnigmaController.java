@@ -91,7 +91,7 @@ public class EnigmaController {
         TextIndexRotore1.setText("A");
         TextIndexRotore2.setText("A");
         TextIndexRotore3.setText("A");
-        TextIndexRiflessore.setText(ChoiceBoxRiflessore.getValue());
+        TextIndexRiflessore.setText("A");
 
         Enigma = new Criptografia(
                 ChoiceBoxRotore1.getSelectionModel().getSelectedIndex(),
@@ -219,8 +219,6 @@ public class EnigmaController {
         int row = pos / COLS;
         int col = pos % COLS;
         cambiaColoreLampo(row, col, Color.YELLOW);
-//        pause.setOnFinished(e -> resetLamp());
-//        pause.play();
     }
 
     @FXML
