@@ -36,8 +36,6 @@ public class Criptografia {
         }
     }
 
-
-
     public ArrayList<Integer> indexRotori() {
         ArrayList<Integer> i = new ArrayList<>();
         i.add(r1.indexRotore);

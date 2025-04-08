@@ -111,8 +111,6 @@ public class EnigmaController {
                 ChoiceBoxRiflessore.getSelectionModel().getSelectedIndex()
         );
 
-
-
         group.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == rdtTastiera) {
                 aggiornaEnigma();
@@ -126,9 +124,6 @@ public class EnigmaController {
                 disableTastiera();
             }
         });
-
-
-
 
         gridLamp.setHgap(SPACING);
         gridLamp.setVgap(SPACING/2);
@@ -349,6 +344,9 @@ public class EnigmaController {
         TextIndexRotore2.setText("A");
         TextIndexRotore3.setText("A");
         TextIndexRiflessore.setText(ChoiceBoxRiflessore.getValue());
+
+        txtOutput.clear();
+        txtInput.clear();
 
         TextField[] plugFields = {
                 txtPlugboard1, txtPlugboard2, txtPlugboard3, txtPlugboard4, txtPlugboard5,
